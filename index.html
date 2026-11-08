@@ -30,6 +30,7 @@
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn,.career,.path{transition:none}}
   .nav .nav-phone{display:inline-flex;white-space:nowrap;font-variant-numeric:tabular-nums}@media(max-width:560px){.nav .nav-phone{padding:9px 11px;font-size:13px}}
 .nav-contact{display:flex;align-items:center;gap:8px;flex-shrink:0}.nav-contact .nav-cta{margin:0;white-space:nowrap}.nav-contact .nav-phone{background:#242d45;color:#fff;border:1px solid #535f7a}@media(max-width:800px){.nav-contact{margin-left:auto}}@media(max-width:560px){.site-header .nav{gap:6px;padding-inline:10px}.nav-contact{gap:4px}.nav-contact .nav-cta,.nav-contact .nav-phone{font-size:11px;padding-inline:6px}.site-header .brand small{display:none}}
+@media(hover:none){.career:hover{transform:none;box-shadow:none}}.career{position:relative;isolation:isolate}.career:focus-within{border-color:var(--accent)}.career::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(circle at var(--px,50%) var(--py,50%),color-mix(in srgb,var(--accent) 22%,transparent),transparent 58%);transition:opacity .22s}@media(hover:hover) and (pointer:fine){.career:hover::after{opacity:1}.career:hover{border-color:var(--accent)}}.career .card-ripple{position:absolute;left:var(--rx);top:var(--ry);width:24px;height:24px;pointer-events:none;border-radius:50%;background:color-mix(in srgb,var(--accent) 35%,white);animation:card-ripple .55s ease-out both}@keyframes card-ripple{from{transform:translate(-50%,-50%) scale(.5);opacity:.7}to{transform:translate(-50%,-50%) scale(24);opacity:0}}@media(prefers-reduced-motion:reduce){.career:hover{transform:none}.career::after,.career .card-ripple{display:none}}
 </style>
 </head>
 <body>
@@ -160,5 +161,11 @@
       if('IntersectionObserver' in window&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');observer.unobserve(e.target);}})},{threshold:.08});document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el);});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('is-visible');});}
     })();
   </script>
-</body>
+<script>
+document.querySelectorAll('.career').forEach(card=>{
+  const point=e=>{const r=card.getBoundingClientRect();return [e.clientX-r.left,e.clientY-r.top]};
+  card.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const [x,y]=point(e);card.style.setProperty('--px',x+'px');card.style.setProperty('--py',y+'px')});
+  card.addEventListener('pointerdown',e=>{if(e.button!==0||!e.isPrimary||matchMedia('(prefers-reduced-motion: reduce)').matches)return;const [x,y]=point(e);card.querySelector('.card-ripple')?.remove();const pulse=document.createElement('span');pulse.className='card-ripple';pulse.setAttribute('aria-hidden','true');pulse.style.setProperty('--rx',x+'px');pulse.style.setProperty('--ry',y+'px');card.append(pulse);pulse.addEventListener('animationend',()=>pulse.remove(),{once:true});setTimeout(()=>pulse.remove(),700)});
+});
+</script></body>
 </html>
