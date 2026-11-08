@@ -176,9 +176,17 @@ document.querySelectorAll('.career').forEach(card=>{
 });
 </script><script>
 (()=>{const story=document.querySelector('.scroll-story'),stage=story.querySelector('.story-stage'),cards=[...story.querySelectorAll('.story-card')],motion=matchMedia('(prefers-reduced-motion: reduce)'),positions=[[26,29],[72,61],[48,42],[80,33],[20,69],[58,72],[37,55],[67,25],[14,44],[83,76],[51,29],[31,77],[73,49],[44,67],[22,52],[60,53],[39,34],[76,68],[51,78],[34,61]];let pending=false,timer=0,shown=0,target=0,final=false;
+let previousProgress=null,released=false,anchorJump=false;
+document.addEventListener('click',e=>{const link=e.target.closest?.('a[href^="#"]');if(link){anchorJump=true;setTimeout(()=>{anchorJump=false;previousProgress=null},1200)}},true);
+function finish(){story.classList.add('is-finale');setTimeout(()=>{if(story.classList.contains('is-finale'))released=true},450)}
+
 cards.forEach((card,i)=>{const [x,y]=positions[i];card.style.setProperty('--sx',x+'%');card.style.setProperty('--sy',y+'%');card.style.setProperty('--mx',(25+(x-14)*.72)+'%');card.style.setProperty('--my',y+'%');card.style.setProperty('--tilt',([-9,5,-3,11,-7,3,8,-12,4,-5][i%10])+'deg')});
-function step(){timer=0;if(shown>=target)return;cards[shown++].classList.add('is-landed');timer=setTimeout(()=>{timer=0;if(shown<target)step();else if(final&&shown===cards.length)story.classList.add('is-finale')},330)}
-function render(){pending=false;story.classList.toggle('is-enhanced',!motion.matches);if(motion.matches){clearTimeout(timer);timer=0;shown=0;cards.forEach(card=>card.classList.remove('is-landed'));story.classList.remove('is-finale');return}const bounds=story.getBoundingClientRect(),distance=Math.max(1,bounds.height-stage.offsetHeight),progress=-bounds.top/distance;target=cards.filter((_,i)=>progress>=.025+i*.84/Math.max(1,cards.length-1)).length;final=progress>=.94;if(!final)story.classList.remove('is-finale');while(shown>target)cards[--shown].classList.remove('is-landed');if(!timer){if(shown<target)step();else if(final&&shown===cards.length)story.classList.add('is-finale')}}
+function step(){timer=0;if(shown>=target)return;cards[shown++].classList.add('is-landed');timer=setTimeout(()=>{timer=0;if(shown<target)step();else if(final&&shown===cards.length&&!story.classList.contains('is-finale'))finish()},330)}
+function render(){pending=false;story.classList.toggle('is-enhanced',!motion.matches);if(motion.matches){clearTimeout(timer);timer=0;shown=0;cards.forEach(card=>card.classList.remove('is-landed'));story.classList.remove('is-finale');return}const bounds=story.getBoundingClientRect(),distance=Math.max(1,bounds.height-stage.offsetHeight);let progress=-bounds.top/distance;
+if(progress<.025)released=false;
+if(!released&&!anchorJump&&progress>.96&&(previousProgress!==null&&previousProgress<=.961)){window.scrollTo({top:window.scrollY+bounds.top+distance*.96,behavior:'instant'});progress=.96}
+previousProgress=progress;
+target=cards.filter((_,i)=>progress>=.025+i*.84/Math.max(1,cards.length-1)).length;final=progress>=.94;if(!final)story.classList.remove('is-finale');while(shown>target)cards[--shown].classList.remove('is-landed');if(!timer){if(shown<target)step();else if(final&&shown===cards.length&&!story.classList.contains('is-finale'))finish()}}
 function schedule(){if(!pending){pending=true;requestAnimationFrame(render)}}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);motion.addEventListener('change',schedule);render()})();
 </script></body>
 </html>
