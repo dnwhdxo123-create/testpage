@@ -269,3 +269,20 @@ dialog{width:min(840px,calc(100% - 32px));max-height:90svh;border:0;border-radiu
 .footer-legal{margin-top:30px}
 @media(max-width:1050px){.footer-columns{grid-template-columns:1fr 1.35fr;gap:30px}.footer-brand-column{grid-template-columns:1fr 1.3fr;gap:20px}.footer-brand-column .footer-blog{grid-column:1/-1}.footer-business-column{grid-column:1/-1}.footer-business-column dl{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.academy-footer{padding-top:32px}.footer-columns{grid-template-columns:1fr;gap:27px}.footer-brand-column{grid-template-columns:1fr;gap:15px;padding-bottom:24px}.footer-brand-column .footer-blog{grid-column:auto}.footer-business-column{grid-column:auto}.footer-business-column dl{grid-template-columns:1fr}.footer-business-column dl>div{grid-column:auto!important}.footer-brand-lockup b{font-size:22px}.footer-columns h3{margin-bottom:13px}}
+
+/* Phone and Kakao actions stay within thumb reach on mobile. */
+.mobile-consult-bar{display:none}
+@media(max-width:850px){
+body{padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))}
+html{scroll-padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+.quick-contact{display:none!important}
+.mobile-consult-bar{position:fixed;z-index:60;bottom:calc(10px + env(safe-area-inset-bottom,0px));left:10px;right:10px;display:grid;grid-template-columns:.85fr 1.35fr;gap:6px;padding:6px;border-radius:24px;background:#103953;box-shadow:0 6px 24px #071d3738,inset 0 1px 0 #ffffff25}
+.mobile-consult-bar a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:58px;padding:10px 8px;border-radius:18px;text-decoration:none;font-size:clamp(14px,3.8vw,18px);font-weight:850;line-height:1.3;white-space:nowrap;transition:transform .15s,filter .15s}
+.mobile-consult-bar a:active{transform:scale(.97);filter:brightness(.94)}
+.mobile-consult-bar a:focus-visible{outline:3px solid #58c9ff;outline-offset:3px}
+.mobile-consult-bar svg{width:23px;height:23px;flex:none;fill:currentColor}
+.mobile-call{background:#fff;color:#07558f}
+.mobile-kakao{background:#ffe000;color:#111}
+}
+@media(max-width:360px){.mobile-consult-bar{left:6px;right:6px}.mobile-consult-bar a{min-height:54px;font-size:14px;gap:4px}.mobile-consult-bar svg{width:20px;height:20px}}
+@media(prefers-reduced-motion:reduce){.mobile-consult-bar a{transition:none}}
