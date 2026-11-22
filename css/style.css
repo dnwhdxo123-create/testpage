@@ -16,3 +16,41 @@ dialog{width:min(840px,calc(100% - 32px));max-height:90svh;border:0;border-radiu
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.marquee>div{max-width:100%;width:auto}.marquee span{white-space:normal;font-size:16px}.marquee span+span{display:none}}
 
 .motion-ready{opacity:0;translate:0 16px;transition:opacity .45s,translate .45s,transform .2s,box-shadow .2s}.motion-ready.entered{opacity:1;translate:0 0}@media(prefers-reduced-motion:reduce){.motion-ready{opacity:1;translate:none}}
+
+/* 전국 지점 안내 */
+.campus-section{background:linear-gradient(112deg,#071d37 12%,#0c3e69 100%);padding-block:100px}
+.campus-layout{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.campus-copy h2{font-size:clamp(33px,3.7vw,53px);font-weight:850;line-height:1.22}
+.campus-intro{color:#c2d1df;margin:24px 0 30px;line-height:1.8}
+.campus-tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:30px}
+.campus-tabs button{border:1px solid #7895b0;border-radius:30px;background:none;color:#f5f8fb;font-size:16px;font-weight:750;min-height:45px;padding:9px 17px;transition:background .2s,color .2s}
+.campus-tabs button[aria-pressed=true]{background:var(--yellow);color:var(--navy);border-color:var(--yellow)}
+.campus-tabs button:hover{border-color:var(--yellow)}
+.campus-info{border-top:1px solid #ffffff2b;padding-top:24px;min-height:285px}
+.campus-city{font-size:12px;font-weight:700;letter-spacing:.08em;color:#afc9de}
+.campus-info h3{font-size:23px;margin:8px 0 14px;line-height:1.4}
+.campus-address{color:#e1ebf3;font-size:16px;line-height:1.65}
+.campus-transit{color:#a7cbeb;font-size:14px;margin-top:7px}
+.campus-buttons{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 18px}
+.campus-buttons .btn{font-size:15px;padding:12px 18px}
+.campus-details{display:flex;gap:22px;font-size:14px;color:#bdd2e4}
+.campus-details a{text-decoration:underline;text-underline-offset:4px}
+.campus-consult{font-size:14px;color:#acc4d8;margin-top:20px}
+.campus-consult a{color:white;font-size:18px;font-weight:800;margin-left:10px;white-space:nowrap}
+.campus-map-panel{width:100%;max-width:530px;margin-inline:auto}
+.map-surface{position:relative;width:100%;aspect-ratio:520/650}
+.korea-map{width:100%;height:100%;overflow:visible}
+.korea-land,.jeju{fill:#0f446c;stroke:#79a6c6;stroke-width:2;stroke-linejoin:round}
+.province-lines path{fill:none;stroke:#6c94b1;stroke-width:1.2;opacity:.6;stroke-linejoin:round}
+.campus-connections path{fill:none;stroke:var(--yellow);stroke-width:2;stroke-dasharray:3 9;stroke-linecap:round;opacity:.65}
+.campus-pin{position:absolute;left:var(--pin-x);top:var(--pin-y);transform:translate(-50%,-50%);width:29px;height:29px;border-radius:50%;padding:0;background:#ffd50024;display:grid;place-items:center;z-index:2}
+.pin-dot{width:10px;height:10px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 4px #ffd50033}
+.campus-pin.selected{z-index:4}
+.campus-pin.selected .pin-dot{box-shadow:0 0 0 8px #ffd50033,0 0 0 15px #ffd50016;animation:campus-pulse 2.5s ease-in-out infinite}
+.pin-name{display:none;position:absolute;left:32px;top:0;background:white;color:var(--navy);white-space:nowrap;border-radius:7px;padding:7px 12px;font-size:14px;font-weight:850;box-shadow:0 6px 20px #0002}
+.campus-pin.selected .pin-name,.campus-pin:hover .pin-name,.campus-pin:focus-visible .pin-name{display:block}
+.map-caption{text-align:center;color:#94b4ce;font-size:12px;margin-top:5px}
+@keyframes campus-pulse{50%{box-shadow:0 0 0 6px #ffd50040,0 0 0 18px #ffd50008}}
+@media(max-width:1000px){.campus-layout{gap:20px}.campus-copy h2{font-size:38px}.campus-tabs{gap:8px}.campus-tabs button{font-size:14px;padding-inline:13px}.campus-info{min-height:300px}}
+@media(max-width:750px){.campus-section{padding-block:65px}.campus-layout{grid-template-columns:1fr;gap:22px}.campus-map-panel{max-width:430px}.campus-info{min-height:0}.campus-copy h2{font-size:36px}.campus-map-panel{order:2}.campus-buttons{gap:8px}.campus-buttons .btn{font-size:14px;flex:1;white-space:nowrap;padding-inline:12px}.campus-details{gap:18px;font-size:13px}.campus-consult a{font-size:17px}.pin-name{font-size:13px;padding:6px 10px}}
+@media(prefers-reduced-motion:reduce){.campus-pin.selected .pin-dot{animation:none}}
