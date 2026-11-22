@@ -588,3 +588,15 @@ window.ACADEMY_CONTENT.nav.push(['지점 안내','campuses']);
 
 window.ACADEMY_CONTENT.hero.kakaoUrl = "https://open.kakao.com/o/sD28nP0h";
 window.ACADEMY_CONTENT.buttons.kakao = "카카오톡으로 교육 상담하기";
+
+window.ACADEMY_CONTENT.visit = {
+  "title": "배움으로 향하는 길,<br><strong>신촌에서 만나요.</strong>",
+  "description": "신촌역에서 가까운 코리아AI아카데미 신촌점.<br>역 출구부터 학원까지, 네이버 지도로 편하게 찾아오세요.",
+  "photo": "https://ldb-phinf.pstatic.net/20190907_116/1567836397905e9Fhg_JPEG/1mLR3jFTRXXKLYyqhCiCJyOl.jpg",
+  "photoAlt": "네이버 플레이스에 등록된 코리아AI아카데미 신촌점 강의실",
+  "source": "https://m.place.naver.com/place/913835942/home",
+  "address": "서울특별시 마포구 서강로 136 아이비타워 2·3층",
+  "route": "https://m.search.naver.com/search.naver?query=%EB%B9%A0%EB%A5%B8%EA%B8%B8%EC%B0%BE%EA%B8%B0&nso_path=placeType%5Eplace%3Bname%5E%EC%8B%A0%EC%B4%8C%EC%97%AD%207%EB%B2%88%EC%B6%9C%EA%B5%AC%3Baddress%5E%3Bcode%5E%3Blongitude%5E126.93628%3Blatitude%5E37.5549962%7Ctype%5Eplace%3Bname%5E%EC%BD%94%EB%A6%AC%EC%95%84AI%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8%20%EC%8B%A0%EC%B4%8C%EC%A0%90%3Baddress%5E%EC%84%9C%EC%9A%B8%20%EB%A7%88%ED%8F%AC%EA%B5%AC%20%EC%84%9C%EA%B0%95%EB%A1%9C%20136%3Bcode%5E913835942%3Blongitude%5E126.9358065%3Blatitude%5E37.5540349%7Cobjtype%5Epath%3Bby%5Ewalk",
+  "map": "https://map.naver.com/p/entry/place/913835942",
+  "transit": "2호선 신촌역 7번 출구"
+};
