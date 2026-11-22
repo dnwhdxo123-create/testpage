@@ -232,3 +232,22 @@ dialog{width:min(840px,calc(100% - 32px));max-height:90svh;border:0;border-radiu
 
 /* Sinchon is the sole destination; other campuses remain visual landmarks. */
 .campus-pin{cursor:default}.campus-pin[data-campus="sinchon"]{width:42px;height:42px;z-index:5}.campus-pin[data-campus="sinchon"] .pin-dot{width:18px;height:18px;background:#ffe000;box-shadow:0 0 0 10px #ffd50035,0 0 25px #ffd50080}.campus-pin[data-campus="sinchon"] .pin-name{font-size:20px;padding:10px 17px;right:41px;top:-42px;background:#ffd500;box-shadow:0 8px 24px #0003}.campus-tabs a{text-decoration:none}@media(max-width:650px){.campus-pin[data-campus="sinchon"] .pin-name{font-size:17px;padding:8px 12px;right:32px;top:-36px}}
+
+/* Reference-inspired illuminated learning stages */
+#roadmap{position:relative;isolation:isolate;background:radial-gradient(ellipse at 50% 60%,#104c7355,transparent 68%),#071d37}
+.roadmap-fx-card{isolation:isolate;transform:translateY(0);transition:transform .38s ease,background .38s ease,color .38s ease,box-shadow .38s ease,border-color .38s ease;overflow:visible}
+.roadmap-fx-card:before{content:"";position:absolute;inset:-5px;border-radius:16px;border:4px solid #ffd50060;opacity:0;transition:opacity .35s;pointer-events:none;z-index:-1}
+.roadmap-fx-card.roadmap-current{background:#ffd500;color:#071d37;border-color:#ffe55b;transform:translateY(-10px) scale(1.025);box-shadow:0 12px 0 #b9980025,0 15px 40px #ffd50035}
+.roadmap-fx-card.roadmap-current:before{opacity:1}
+.roadmap-fx-card.roadmap-current p{color:#25333d}.roadmap-fx-card.roadmap-current>span{background:#071d37;color:#ffd500;border-radius:50%;min-width:36px;min-height:36px;display:inline-grid;place-items:center;padding:3px}
+.roadmap-fx-card.roadmap-current h4{color:#071d37}
+.roadmap-fx-card:not(:last-child):after{color:#ffd500;font-weight:900;text-shadow:0 0 15px #ffd50099}
+.roadmap-in-view .roadmap-fx-card{animation:roadmap-arrive .65s calc(var(--step-order)*.13s) both}
+.roadmap-in-view .roadmap-fx-card.roadmap-current{animation:roadmap-card-glow 2.2s ease-in-out infinite}
+.roadmap-output strong{position:relative;display:inline-block;padding:4px 5px}
+.roadmap-output strong:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:50%;background:#ff514a;transform:rotate(-1deg);box-shadow:0 0 10px #ff514a44}
+.roadmap-tabs button{transition:transform .2s,box-shadow .2s}.roadmap-tabs button[aria-selected=true]{box-shadow:0 7px 24px #ffd50025;transform:translateY(-3px)}
+@keyframes roadmap-arrive{from{opacity:0;translate:0 22px}to{opacity:1;translate:0 0}}
+@keyframes roadmap-card-glow{0%,100%{box-shadow:0 12px 0 #b9980025,0 15px 32px #ffd50028}50%{box-shadow:0 12px 0 #b9980035,0 15px 48px #ffd50055}}
+@media(max-width:600px){.roadmap-fx-card.roadmap-current{transform:translateY(-4px) scale(1.01)}.roadmap-output strong{display:block}.roadmap-grid{gap:34px}}
+@media(prefers-reduced-motion:reduce){.roadmap-fx-card,.roadmap-tabs button{transition:none!important;animation:none!important}.roadmap-fx-card.roadmap-current{transform:none}.roadmap-fx-card:before{transition:none}}
