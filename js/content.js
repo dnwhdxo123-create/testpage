@@ -585,3 +585,6 @@ window.ACADEMY_CONTENT.campuses = [
 ];
 
 window.ACADEMY_CONTENT.nav.push(['지점 안내','campuses']);
+
+window.ACADEMY_CONTENT.hero.kakaoUrl = "https://open.kakao.com/o/sD28nP0h";
+window.ACADEMY_CONTENT.buttons.kakao = "카카오톡으로 교육 상담하기";
