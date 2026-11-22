@@ -226,3 +226,6 @@ dialog{width:min(840px,calc(100% - 32px));max-height:90svh;border:0;border-radiu
 
 /* Real working application previews */
 .live-demo-preview{position:relative;overflow:hidden;aspect-ratio:760/475;background:#edf2f8;isolation:isolate}.live-demo-preview iframe{display:block;width:760px;height:475px;border:0;transform:scale(var(--demo-scale,.45));transform-origin:top left;pointer-events:none}.live-demo-label{position:absolute;bottom:8px;left:10px;padding:5px 9px;border-radius:5px;background:#10243fee;color:#fff;font-size:10px;letter-spacing:.03em;pointer-events:none}.project-visual .live-demo-preview{width:100%;height:100%}#dialog-body .live-demo-preview iframe{pointer-events:auto}#dialog-body .live-demo-preview{border-radius:12px;margin-bottom:24px}#dialog-body .live-demo-label{display:none}.program .live-demo-preview{border-bottom:1px solid #dce5ef}
+
+/* Arrows radiate from Sinchon toward every other campus. */
+.campus-travelling-arrow{opacity:0;pointer-events:none;filter:drop-shadow(0 0 4px #ffd50088)}.visit-entered .campus-travelling-arrow{opacity:1}.campus-connections path{opacity:.9}.campus-section.visit-entered .campus-connections path{animation-duration:6s}@media(prefers-reduced-motion:reduce){.campus-travelling-arrow{display:none!important}.campus-section.visit-entered .campus-connections path{animation:none!important}}
