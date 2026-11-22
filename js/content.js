@@ -608,7 +608,6 @@ window.ACADEMY_CONTENT.business = {
   "commerce": "제2019-서울마포-0303호",
   "representative": "최성우",
   "address": "서울특별시 마포구 서강로 136 아이비타워 2·3층",
-  "manager": "정보영",
   "school": "코리아에이아이(AI)아카데미",
   "license": "서울서부 제02201700141호",
   "phone": "02-313-7300",
