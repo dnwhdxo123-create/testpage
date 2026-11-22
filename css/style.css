@@ -229,3 +229,6 @@ dialog{width:min(840px,calc(100% - 32px));max-height:90svh;border:0;border-radiu
 
 /* Arrows radiate from Sinchon toward every other campus. */
 .campus-travelling-arrow{opacity:0;pointer-events:none;filter:drop-shadow(0 0 4px #ffd50088)}.visit-entered .campus-travelling-arrow{opacity:1}.campus-connections path{opacity:.9}.campus-section.visit-entered .campus-connections path{animation-duration:6s}@media(prefers-reduced-motion:reduce){.campus-travelling-arrow{display:none!important}.campus-section.visit-entered .campus-connections path{animation:none!important}}
+
+/* Sinchon is the sole destination; other campuses remain visual landmarks. */
+.campus-pin{cursor:default}.campus-pin[data-campus="sinchon"]{width:42px;height:42px;z-index:5}.campus-pin[data-campus="sinchon"] .pin-dot{width:18px;height:18px;background:#ffe000;box-shadow:0 0 0 10px #ffd50035,0 0 25px #ffd50080}.campus-pin[data-campus="sinchon"] .pin-name{font-size:20px;padding:10px 17px;right:41px;top:-42px;background:#ffd500;box-shadow:0 8px 24px #0003}.campus-tabs a{text-decoration:none}@media(max-width:650px){.campus-pin[data-campus="sinchon"] .pin-name{font-size:17px;padding:8px 12px;right:32px;top:-36px}}
