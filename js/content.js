@@ -498,3 +498,90 @@ window.ACADEMY_CONTENT = {
   "privacyUrl": null,
   "termsUrl": null
 };
+
+// 공식 지점 오시는 길 확인: 2026-11-22. 전화 상담 번호는 별도 유지합니다.
+window.ACADEMY_CONTENT.campuses = [
+  {
+    "id": "sinchon",
+    "name": "신촌점",
+    "city": "서울 · 신촌",
+    "address": "서울특별시 마포구 서강로 136 아이비타워 2·3층",
+    "directions": "2호선 신촌역 7번 출구",
+    "officialPhone": "02-313-7300",
+    "x": 163,
+    "y": 181,
+    "url": "https://sinchon.koreaisacademy.com/",
+    "source": "https://sinchon.koreaisacademy.com/2025/academy/location.asp"
+  },
+  {
+    "id": "gangnam",
+    "name": "강남점",
+    "city": "서울 · 강남",
+    "address": "서울특별시 강남구 테헤란로 146 현익빌딩 3·4층",
+    "officialPhone": "02-538-0021",
+    "x": 191,
+    "y": 197,
+    "url": "https://gangnam.koreaisacademy.com/",
+    "source": "https://gangnam.koreaisacademy.com/2025/academy/location.asp"
+  },
+  {
+    "id": "nowon",
+    "name": "노원점",
+    "city": "서울 · 노원",
+    "address": "서울특별시 노원구 상계로1길 34 5층",
+    "officialPhone": "02-933-5890",
+    "x": 189,
+    "y": 155,
+    "url": "https://nowon.koreaisacademy.com/",
+    "source": "https://nowon.koreaisacademy.com/2025/academy/location.asp"
+  },
+  {
+    "id": "incheon",
+    "name": "인천점",
+    "city": "인천 · 부평",
+    "address": "인천광역시 부평구 시장로 7 M.H빌딩 5층",
+    "directions": "1호선 부평역 부평모두몰(지하상가) 21번 출구",
+    "officialPhone": "032-262-5890",
+    "x": 128,
+    "y": 197,
+    "url": "https://incheon.koreaisacademy.com/",
+    "source": "https://incheon.koreaisacademy.com/2025/academy/location.asp"
+  },
+  {
+    "id": "daejeon",
+    "name": "대전점",
+    "city": "대전 · 둔산",
+    "address": "대전광역시 서구 둔산로 52 미라클빌딩 3층",
+    "directions": "시청역 2번 출구 방면 도보 5분 거리",
+    "officialPhone": "042-369-5890",
+    "x": 221,
+    "y": 319,
+    "url": "https://daejeon.koreaisacademy.com/",
+    "source": "https://daejeon.koreaisacademy.com/2025/academy/location.asp"
+  },
+  {
+    "id": "daegu",
+    "name": "대구점",
+    "city": "대구 · 반월당",
+    "address": "대구광역시 중구 중앙대로 366 반월센트럴타워 9·10층",
+    "directions": "1·2호선 반월당역 13번 출구 바로 연결",
+    "officialPhone": "053-710-5890",
+    "x": 328,
+    "y": 362,
+    "url": "https://daegu.koreaisacademy.com/",
+    "source": "https://daegu.koreaisacademy.com/2025/academy/location.asp"
+  },
+  {
+    "id": "busan",
+    "name": "부산점",
+    "city": "부산 · 서면",
+    "address": "부산광역시 부산진구 중앙대로 668 에이원프라자 4층",
+    "officialPhone": "051-914-5890",
+    "x": 371,
+    "y": 456,
+    "url": "https://busan.koreaisacademy.com/",
+    "source": "https://busan.koreaisacademy.com/2025/academy/location.asp"
+  }
+];
+
+window.ACADEMY_CONTENT.nav.push(['지점 안내','campuses']);
