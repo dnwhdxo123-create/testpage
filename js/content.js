@@ -600,3 +600,19 @@ window.ACADEMY_CONTENT.visit = {
   "map": "https://map.naver.com/p/entry/place/913835942",
   "transit": "2호선 신촌역 7번 출구"
 };
+
+// 사용자가 제공한 신촌점 사업자 정보
+window.ACADEMY_CONTENT.business = {
+  "company": "㈜코리아정보보안아이티아카데미신촌",
+  "registration": "325-88-00678",
+  "commerce": "제2019-서울마포-0303호",
+  "representative": "최성우",
+  "address": "서울특별시 마포구 서강로 136 아이비타워 2·3층",
+  "manager": "정보영",
+  "school": "코리아에이아이(AI)아카데미",
+  "license": "서울서부 제02201700141호",
+  "phone": "02-313-7300",
+  "email": "nannada38@koreaedugroup.com",
+  "blog": "https://blog.naver.com/sunsoo2002"
+};
+window.ACADEMY_CONTENT.privacyUrl="https://sinchon.koreaisacademy.com/2025/customer/privacy.asp";
