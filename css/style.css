@@ -105,3 +105,22 @@ dialog{width:min(840px,calc(100% - 32px));max-height:90svh;border:0;border-radiu
 @media(prefers-reduced-motion:reduce){.hero:before,.hero-effects .hero-copy>* ,.hero-effects .finder,.hero .hero-buttons .yellow,.hero .hero-buttons .yellow:after{animation:none!important}.hero-mark path{animation:none!important;stroke-dashoffset:0}.header{transition:none}}
 
 .hero .hero-buttons .hero-kakao{width:min(100%,470px);min-height:80px;padding:20px 30px;border-radius:20px;gap:14px;font-size:clamp(19px,1.75vw,25px);font-weight:850;color:#151300;box-shadow:0 6px 0 #b9a000,0 12px 35px #ffd50050}.hero-kakao svg{width:32px;height:32px;fill:currentColor;flex-shrink:0}.hero-kakao span{position:relative;z-index:1}@media(max-width:600px){.hero .hero-buttons .hero-kakao{min-height:72px;font-size:19px;padding:18px 16px;border-radius:17px;gap:10px}.hero-kakao svg{width:28px;height:28px}}
+
+/* Floating quick contact rail */
+.quick-contact{position:fixed;z-index:45;right:20px;top:50%;display:flex;flex-direction:column;gap:25px;align-items:center;padding:20px 12px;background:linear-gradient(145deg,#435568,#34465b);border:1px solid #ffffff24;border-radius:999px;box-shadow:0 18px 35px #071d3738,inset 0 1px 0 #ffffff22;opacity:0;visibility:hidden;pointer-events:none;transform:translate(22px,-50%);transition:opacity .25s,transform .25s,visibility .25s}
+.quick-contact.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(0,-50%)}
+.quick-item{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;min-width:54px;outline-offset:5px;border-radius:14px;color:#fff;font-size:13px;font-weight:800;line-height:1.4}
+.quick-circle{position:relative;width:48px;height:48px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#07558f;transition:transform .2s,box-shadow .2s}
+.quick-circle>svg:not(.quick-progress){width:25px;height:25px;fill:currentColor}
+.quick-kakao{color:#ffe000}
+.quick-kakao .quick-circle{background:#ffe000;color:#000;width:54px;height:54px;box-shadow:0 0 0 4px #e6ce0045}
+.quick-kakao .quick-circle>svg{width:32px;height:32px}
+.quick-top .quick-circle{background:#5a6d80;color:#fff}
+.quick-progress{position:absolute;inset:-2px;width:52px;height:52px;transform:rotate(-90deg);pointer-events:none}
+.quick-progress circle{fill:none;stroke:#ffe000;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:var(--reading,0) 100}
+.quick-tip{position:absolute;right:calc(100% + 20px);top:13px;background:#fff;color:#172431;white-space:nowrap;box-shadow:0 10px 24px #071d3730;border-radius:99px;padding:12px 17px;font-size:14px;font-weight:800;opacity:0;visibility:hidden;transform:translateX(8px);transition:opacity .18s,transform .18s,visibility .18s;pointer-events:none}
+@media(hover:hover){.quick-item:hover .quick-tip{opacity:1;visibility:visible;transform:none}.quick-item:hover .quick-circle{transform:translateY(-2px);box-shadow:0 5px 15px #0003}}
+.quick-item:focus-visible .quick-tip{opacity:1;visibility:visible;transform:none}
+@media(max-width:1250px){.quick-contact{right:10px;padding:16px 8px;gap:20px}.quick-item{min-width:48px;font-size:12px}.quick-circle{width:44px;height:44px}.quick-kakao .quick-circle{width:48px;height:48px}.quick-progress{width:48px;height:48px}.quick-tip{right:calc(100% + 16px)}}
+@media(max-width:600px){.quick-contact{top:auto;bottom:20px;right:9px;padding:12px 7px;gap:17px;border-radius:40px;transform:translateX(18px)}.quick-contact.is-visible{transform:none}.quick-item{min-width:42px;font-size:11px;gap:5px}.quick-circle{width:40px;height:40px}.quick-circle>svg:not(.quick-progress){width:21px;height:21px}.quick-kakao .quick-circle{width:44px;height:44px}.quick-kakao .quick-circle>svg{width:27px;height:27px}.quick-progress{width:44px;height:44px}.quick-tip{font-size:12px;padding:10px 12px;right:calc(100% + 13px);top:8px}}
+@media(prefers-reduced-motion:reduce){.quick-contact,.quick-circle,.quick-tip{transition:none}}
