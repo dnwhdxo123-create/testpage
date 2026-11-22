@@ -76,3 +76,21 @@ addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(upd
 
 // Keep embedded project previews proportional and pause offscreen simulations.
 (()=>{const sizes=new ResizeObserver(entries=>entries.forEach(e=>e.target.style.setProperty('--demo-scale',e.contentRect.width/760)));const visible=new IntersectionObserver(entries=>entries.forEach(e=>e.target.contentWindow?.postMessage({type:'academy-demo-visibility',visible:e.isIntersecting},location.origin)));function watch(){document.querySelectorAll('.live-demo-preview:not([data-ready])').forEach(el=>{el.dataset.ready='true';sizes.observe(el);const frame=el.querySelector('iframe');visible.observe(frame);frame.addEventListener('load',()=>frame.contentWindow?.postMessage({type:'academy-demo-visibility',visible:el.getBoundingClientRect().bottom>0&&el.getBoundingClientRect().top<innerHeight},location.origin));});}watch();new MutationObserver(watch).observe(document.querySelector('#dialog-body'),{childList:true,subtree:true});})();
+
+/* 학습 로드맵: 화면에 들어오면 순서대로 강조하고 직접 선택을 우선합니다. */
+(()=>{
+const section=document.querySelector('#roadmap'),panel=document.querySelector('#roadmap-panel');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+let visible=false,held=false,manualUntil=0,index=0;
+const steps=()=>[...panel.querySelectorAll('.roadmap-step')];
+function emphasize(next){const cards=steps();if(!cards.length)return;index=next%cards.length;cards.forEach((card,i)=>{card.classList.toggle('roadmap-current',i===index);card.setAttribute('aria-pressed',String(i===index));});}
+function prepare(){steps().forEach((card,i)=>{card.style.setProperty('--step-order',i);card.classList.add('roadmap-fx-card');});index=0;emphasize(0);manualUntil=Date.now()+2500;}
+new MutationObserver(prepare).observe(panel,{childList:true});prepare();
+panel.addEventListener('click',e=>{const card=e.target.closest('.roadmap-step');if(card){emphasize(steps().indexOf(card));manualUntil=Date.now()+7000;}});
+panel.addEventListener('pointerover',e=>{const card=e.target.closest('.roadmap-step');if(card&&e.pointerType!=='touch'){held=true;emphasize(steps().indexOf(card));}});
+panel.addEventListener('pointerleave',()=>{held=false;manualUntil=Date.now()+2500;});
+panel.addEventListener('focusin',e=>{const card=e.target.closest('.roadmap-step');if(card){held=true;emphasize(steps().indexOf(card));}});
+panel.addEventListener('focusout',e=>{if(!panel.contains(e.relatedTarget)){held=false;manualUntil=Date.now()+2500;}});
+new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;section.classList.toggle('roadmap-in-view',visible);},{threshold:.08}).observe(section);
+setInterval(()=>{if(visible&&!document.hidden&&!held&&!reduced.matches&&Date.now()>manualUntil)emphasize(index+1);},2200);
+})();
